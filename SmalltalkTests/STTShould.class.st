@@ -46,6 +46,17 @@ STTShould >> <= aValue [
 ]
 
 { #category : #testing }
+STTShould >> === expectation [
+	"Test that the contained value is equal to (according to =) aValue using a BeMatcher (as in: [ 3 + 4 ] should equal: 7)"
+	| actualValue failureString |
+	actualValue := self value.
+	failureString := actualValue printString , ' did not equal ' , expectation printString.
+	actualValue = expectation
+		ifFalse: [ self classForFailure signal: failureString ].
+	^ true
+]
+
+{ #category : #testing }
 STTShould >> > aValue [
 	"Tests if the contained value is greater than aValue."
 	| actualValue failureString |

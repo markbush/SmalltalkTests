@@ -258,7 +258,7 @@ STTShouldTest >> testLessThanOrEqual [
 { #category : #testing }
 STTShouldTest >> testShouldEqualAValue [
 	| result |
-	result := [ 1 + 1 ] should equal: 2.
+	result := [ 1 + 1 ] should === 2.
 	self assert: result.
 	result := [ #() ] should equal: #().
 	self assert: result.
@@ -371,7 +371,7 @@ STTShouldTest >> testShouldMatchPropertyValues [
 { #category : #testing }
 STTShouldTest >> testShouldNotEqual [
 	| result |
-	result := [ 1 + 1 ] should not equal: 3.
+	result := [ 1 + 1 ] should not === 3.
 	self assert: result.
 	result := [ #(1) ] should not equal: #().
 	self assert: result.
