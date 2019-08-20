@@ -29,7 +29,7 @@ Both forms have variants which negate the meaning of the test:
 
 ### Checking equality
 
-Either `===` or `equal:` will test for equality.
+Either `===` or `equal:` will test for equality.  Do **not** use equality testing for floats.  Use `be:` with a range (see below).
 
 ```smalltalk
 [ 1 + 1 ] should === 2.
@@ -89,3 +89,59 @@ You can do similar checks with regular expressions, as well as checking for a co
 [ 'another string' ] should not fullyMatch: 'r\ss'.
 ```
 
+These forms all allow you to specify match groups and test that they return specific values.
+
+NOTE: Pharo regular expressions are greedy and don't provide non-greedy elements.  This means that in order to match in the middle or end of a string, an initial capture group may not behave as expected.  The examples below show that a pattern of, say, 'l+' at the start will only match a single 'l'.
+
+```smalltalk
+[ 'Hello, World' ] should startWithRegex: '(Hel+)' withGroups: #('Hell').
+[ 'another string' ] should startWithRegex: '(a.*o)(t.e)' withGroups: #('ano' 'the').
+[ 'Hello, World' ] should not startWithRegex: '(Hel+)' withGroups: #('Hel').
+[ 'another string' ] should not startWithRegex: '(a.*o)(t.e)' withGroups: #('an' 'other').
+[ 'Hello, World' ] should endWithRegex: '(l+o), (W.+d)' withGroups: #('lo' 'World').
+[ 'another string' ] should endWithRegex: '(\sst)(r[^x]*g)' withGroups: #(' st' 'ring').
+[ 'Hello, World' ] should not endWithRegex: '(W.d)' withGroups: #('World').
+[ 'another string' ] should not endWithRegex: '(\sst)(r[^x]*g)' withGroups: #('st' 'ring').
+[ 'Hello, World' ] should includeRegex: '(l+o)' withGroups: #('lo').
+[ 'another string' ] should includeRegex: '(t.e).*(tr)' withGroups: #('the' 'tr').
+[ 'Hello, World' ] should not includeRegex: '(l+o)' withGroups: #('llo').
+[ 'another string' ] should not includeRegex: '(t.e).*(tr)' withGroups: #('the' 'ring').
+[ 'Hello, World' ] should fullyMatch: '(\w+), (\w+)' withGroups: #('Hello' 'World').
+[ 'another string' ] should fullyMatch: '(a.*r)\s(..r.*g)' withGroups: #('another' 'string').
+[ 'Hello, World' ] should not fullyMatch: '(\w+) (\w+)' withGroups: #('Hello' 'World').
+[ 'another string' ] should not fullyMatch: '(a.*r)\s(..r.*g)' withGroups: #('another' 'ring').
+```
+
+### Greater and less than
+
+You can match any type that supports `>`, `>=`, `<`, `<=` (not just numbers).
+
+```smalltalk
+[ 2 ] should be < 4.
+[ 3.6 ] should be < 3.7.
+[ -4 ] should not be < -6.
+[ 12.5 ] should not be < 0.
+[ 2 ] should be <= 4.
+[ 3.6 ] should be <= 3.6.
+[ -4 ] should not be <= -6.
+[ 12.5 ] should not be <= 0.
+[ 4 ] should be > 2.
+[ 3.7 ] should be > 3.6.
+[ -6 ] should not be > -4.
+[ 0 ] should not be > 12.5.
+[ 4 ] should be >= 2.
+[ 3.7 ] should be >= 3.7.
+[ -6 ] should not be >= -4.
+[ 0 ] should not be >= 12.5.
+```
+
+### Checking boolean properties
+
+You can use `be:` to check for a boolean property.
+
+```smalltalk
+[ 2 ] should be: #even.
+[ #() ] should be: #empty.
+[ 2 ] should not be: #odd.
+[ #(1) ] should not be: #empty.
+```
