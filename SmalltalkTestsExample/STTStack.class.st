@@ -78,7 +78,7 @@ STTStack >> push: anObject [
 		ifFalse: [ stack addLast: anObject ]
 ]
 
-{ #category : #testing }
+{ #category : #accessing }
 STTStack >> size [
 	"Answer how many items are in the Stack"
 	^ stack size
