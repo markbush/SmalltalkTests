@@ -211,65 +211,6 @@ You can easily check that a result is empty.
 [ 'some string' ] should not be empty.
 ```
 
-### Checking substrings of strings
-
-You can check if a substring is at the start, end, or otherwise included anywhere in a string.
-
-```smalltalk
-[ 'some string' ] should startWith: 'some'.
-[ 'another string' ] should not startWith: 'some'.
-[ 'some string' ] should endWith: 'string'.
-[ 'another string' ] should not endWith: 'another'.
-[ 'some string' ] should include: 'me str'.
-[ 'another string' ] should not include: 'me str'.
-```
-
-### Checking strings with regular expressions
-
-You can test that a string matches a regular expression.  This can be anchored at the beginning or end, be not anchored, or match the entire string.
-
-```smalltalk
-[ 'Hello, World' ] should startWithRegex: 'Hel+'.
-[ 'another string' ] should startWithRegex: 'a.*r'.
-[ 'Hello, World' ] should not startWithRegex: '\sW'.
-[ 'another string' ] should not startWithRegex: 's.*g'.
-[ 'Hello, World' ] should endWithRegex: 'W.*d'.
-[ 'another string' ] should endWithRegex: '\ss[^h]+g'.
-[ 'Hello, World' ] should not endWithRegex: '\sW'.
-[ 'another string' ] should not endWithRegex: 's.*i'.
-[ 'Hello, World' ] should includeRegex: 'l+.*r'.
-[ 'another string' ] should includeRegex: '\ss[^h]+i'.
-[ 'Hello, World' ] should not includeRegex: '\sWx'.
-[ 'another string' ] should not includeRegex: 'r\sx'.
-[ 'Hello, World' ] should fullyMatch: 'Hel+o.*d'.
-[ 'another string' ] should fullyMatch: 'a[^x]+\ss[^h]+g'.
-[ 'Hello, World' ] should not fullyMatch: '\sWo'.
-[ 'another string' ] should not fullyMatch: 'r\ss'.
-```
-
-Regular expression matches can also check match groups against values.
-
-NOTE: regular expressions are tested eagerly (as there are no consistent lazy forms in Smalltalks) so the first character of an initial match group in `endWithRegex:withGroups:` and `includeRegex:withGroups:` will only match a single character, regardless of any `*` or `+` following it.
-
-```smalltalk
-[ 'Hello, World' ] should startWithRegex: '(Hel+)' withGroups: #('Hell').
-[ 'another string' ] should startWithRegex: '(a.*o)(t.e)' withGroups: #('ano' 'the').
-[ 'Hello, World' ] should not startWithRegex: '(Hel+)' withGroups: #('Hel').
-[ 'another string' ] should not startWithRegex: '(a.*o)(t.e)' withGroups: #('an' 'other').
-[ 'Hello, World' ] should endWithRegex: '(l+o), (W.+d)' withGroups: #('lo' 'World').
-[ 'another string' ] should endWithRegex: '(\sst)(r[^x]*g)' withGroups: #(' st' 'ring').
-[ 'Hello, World' ] should not endWithRegex: '(W.d)' withGroups: #('World').
-[ 'another string' ] should not endWithRegex: '(\sst)(r[^x]*g)' withGroups: #('st' 'ring').
-[ 'Hello, World' ] should includeRegex: '(l+o)' withGroups: #('lo').
-[ 'another string' ] should includeRegex: '(t.e).*(tr)' withGroups: #('the' 'tr').
-[ 'Hello, World' ] should not includeRegex: '(l+o)' withGroups: #('llo').
-[ 'another string' ] should not includeRegex: '(t.e).*(tr)' withGroups: #('the' 'ring').
-[ 'Hello, World' ] should fullyMatch: '(\w+), (\w+)' withGroups: #('Hello' 'World').
-[ 'another string' ] should fullyMatch: '(a.*r)\s(..r.*g)' withGroups: #('another' 'string').
-[ 'Hello, World' ] should not fullyMatch: '(\w+) (\w+)' withGroups: #('Hello' 'World').
-[ 'another string' ] should not fullyMatch: '(a.*r)\s(..r.*g)' withGroups: #('another' 'ring').
-```
-
 ### Checking a collection contains a value
 
 You can use both `contains:` and `contains value:` to check an element is in a collection.
