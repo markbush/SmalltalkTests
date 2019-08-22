@@ -315,3 +315,14 @@ d := { #one->1 . #two->2 . #three->3 } asDictionary.
 [ #(1 2 3) ] should not contain theSameElementsInOrderAs: #(3 2 1).
 [ Set with: #aSymbol with: #anotherSymbol ] should not contain theSameElementsInOrderAs: #(#someSymbol #anotherSymbol).
 ```
+
+### Checking exceptions
+
+You can check that specific exceptions get thrown.  The test checks if the specified exception or any subclass is thrown.
+
+```smalltalk
+[ 1 / 0 ] should throw: ZeroDivide.
+[ #() first ] should throw: SubscriptOutOfBounds.
+[ 0 / 1 ] should not throw: ZeroDivide.
+[ #(1) first ] should not throw: SubscriptOutOfBounds.
+```
