@@ -25,6 +25,41 @@ Both forms have variants which negate the meaning of the test:
 [ value to test ] must not ...
 ```
 
+## Installing
+
+### Pharo 6.1
+
+Open the Monticello Browser and add the SqueakSource repository:
+```smalltalk
+MCHttpRepository
+    location: 'http://www.squeaksource.com/SmalltalkTests'
+    user: ''
+    password: ''
+```
+
+Select and load each of the packages:
+* SmalltalkTests
+* SmalltalkTests-Tests
+* SmalltalkTestsExample
+
+### Pharo 7.0 & 8.0
+
+Open Iceberg and add the GitHub repository:
+* Owner name: markbush
+* Project name: SmalltalkTests
+* Protocol: HTTPS
+
+Open the package view and load each of the packages:
+* SmalltalkTests
+* SmalltalkTests-Tests
+* SmalltalkTestsExample
+
+## Checking the installation
+
+The `SmalltalkTests-Tests` package contains standard SUnit tests for this project.  These tests have been confirmed working in Pharo 6.1 and 7.0 stable, and 8.0 development.  Run the tests to confirm that the package is working in your image.
+
+The `SmalltalkTestsExample` package is an example of using SmalltalkTests in a project.  This is a sample implementation of stacks.  The tests have been confirmed working in Pharo 6.1 and 7.0 stable, and 8.0 development.
+
 ## Available tests
 
 ### Checking equality
