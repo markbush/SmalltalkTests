@@ -42,7 +42,7 @@ Select and load each of the packages:
 * SmalltalkTests-Tests
 * SmalltalkTestsExample
 
-### Pharo 7.0 & 8.0
+### Pharo 7.0, 8.0, 9.0
 
 Open Iceberg and add the GitHub repository:
 * Owner name: markbush
@@ -56,9 +56,9 @@ Open the package view and load each of the packages:
 
 ## Checking the installation
 
-The `SmalltalkTests-Tests` package contains standard SUnit tests for this project.  These tests have been confirmed working in Pharo 6.1 and 7.0 stable, and 8.0 development.  Run the tests to confirm that the package is working in your image.
+The `SmalltalkTests-Tests` package contains standard SUnit tests for this project.  These tests have been confirmed working in Pharo 6.1, 7.0, 8.0, and 9.0 development.  Run the tests to confirm that the package is working in your image.
 
-The `SmalltalkTestsExample` package is an example of using SmalltalkTests in a project.  This is a sample implementation of stacks.  The tests have been confirmed working in Pharo 6.1 and 7.0 stable, and 8.0 development.
+The `SmalltalkTestsExample` package is an example of using SmalltalkTests in a project.  This is a sample implementation of stacks.  The tests have been confirmed working in Pharo 6.1, 7.0, 8.0, and 9.0 development.
 
 ## Available tests
 
@@ -196,8 +196,6 @@ You can check that a result is exactly the same object as something with `theSam
 
 ```smalltalk
 [ 2 ] should be theSameInstanceAs: 2.
-[ #() ] should be theSameInstanceAs: #().
-[ 'some string' ] should be theSameInstanceAs: 'some string'.
 [ $a ] should be theSameInstanceAs: $a.
 [ #aSymbol ] should be theSameInstanceAs: #aSymbol.
 aSet := Set with: 'a string'.
