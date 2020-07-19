@@ -246,7 +246,7 @@ You can easily check that a result is empty.
 
 ### Checking a collection contains a value
 
-You can use both `contains:` and `contains value:` to check an element is in a collection.
+You can use both `contain:` and `contain value:` to check an element is in a collection.
 
 ```smalltalk
 [ 'some string' ] should contain: $t.
@@ -266,7 +266,7 @@ a := #(1 $x #aSymbol).
 
 ### Checking a Dictionary contains a key
 
-Use `contains key:` to check a key is in a Dictionary.
+Use `contain key:` to check a key is in a Dictionary.
 
 ```smalltalk
 d := { #one->1 . #two->2 . #three->3 } asDictionary.
