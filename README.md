@@ -214,7 +214,7 @@ You can check that a result is a particular class (or subclass) with `a:` and `a
 [ 'some string' ] should be a: String.
 [ $a ] should be a: Character.
 [ #aSymbol ] should be a: #symbol.
-[ 2 ] should be not a: Symbol.
+[ 2 ] should not be a: Symbol.
 [ 3.14 ] should not be a: Set.
 [ 'some string' ] should not be an: Array.
 [ $a ] should not be a: #collection.
