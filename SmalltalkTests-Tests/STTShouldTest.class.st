@@ -342,10 +342,6 @@ STTShouldTest >> testShouldMatchIdentically [
 	| result aSet |
 	result := [ 2 ] should be theSameInstanceAs: 2.
 	self assert: result.
-	result := [ #() ] should be theSameInstanceAs: #().
-	self assert: result.
-	result := [ 'some string' ] should be theSameInstanceAs: 'some string'.
-	self assert: result.
 	result := [ $a ] should be theSameInstanceAs: $a.
 	self assert: result.
 	result := [ #aSymbol ] should be theSameInstanceAs: #aSymbol.
