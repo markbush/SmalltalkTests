@@ -290,7 +290,7 @@ STTShouldTest >> testShouldMatchAClass [
 	self assert: result.
 	result := [ #aSymbol ] should be a: #symbol.
 	self assert: result.
-	result := [ 2 ] should be not a: Symbol.
+	result := [ 2 ] should not be a: Symbol.
 	self assert: result.
 	result := [ 3.14 ] should not be a: Set.
 	self assert: result.
