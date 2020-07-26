@@ -44,6 +44,26 @@ Select and load each of the packages:
 
 ### Pharo 7.0, 8.0, 9.0
 
+Using Metacello:
+
+```smalltalk
+Metacello new
+  baseline: 'SmalltalkTests';
+  repository: 'github://markbush/SmalltalkTests';
+  load
+```
+
+To include the Stack sample use of the framework (SmalltalkTestsExample):
+
+```smalltalk
+Metacello new
+  baseline: 'SmalltalkTests';
+  repository: 'github://markbush/SmalltalkTests';
+  load: #full
+```
+
+Using Iceberg:
+
 Open Iceberg and add the GitHub repository:
 * Owner name: markbush
 * Project name: SmalltalkTests
