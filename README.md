@@ -42,7 +42,7 @@ Select and load each of the packages:
 * SmalltalkTests-Tests
 * SmalltalkTestsExample
 
-### Pharo 7.0, 8.0, 9.0
+### Pharo 7.0, 8.0, 9.0, 10.0
 
 Using Metacello:
 
@@ -76,9 +76,9 @@ Open the package view and load each of the packages:
 
 ## Checking the installation
 
-The `SmalltalkTests-Tests` package contains standard SUnit tests for this project.  These tests have been confirmed working in Pharo 6.1, 7.0, 8.0, and 9.0 development.  Run the tests to confirm that the package is working in your image.
+The `SmalltalkTests-Tests` package contains standard SUnit tests for this project.  These tests have been confirmed working in Pharo 6.1, 7.0, 8.0, 9.0, and 10.0 development.  Run the tests to confirm that the package is working in your image.
 
-The `SmalltalkTestsExample` package is an example of using SmalltalkTests in a project.  This is a sample implementation of stacks.  The tests have been confirmed working in Pharo 6.1, 7.0, 8.0, and 9.0 development.
+The `SmalltalkTestsExample` package is an example of using SmalltalkTests in a project.  This is a sample implementation of stacks.  The tests have been confirmed working in Pharo 6.1, 7.0, 8.0, 9.0, and 10.0 development.
 
 ## Available tests
 
